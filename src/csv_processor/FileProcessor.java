@@ -8,13 +8,15 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 public class FileProcessor {
 
     //extract from CSV method
-    public static void extractFromCSV() throws IOException {
-        Repository.allLinesFromCSV = Files.readAllLines(Path.of(System.getProperty("user.home"), "Desktop", "INPUT.csv"));
-        Repository.allLinesFromCSV.forEach(System.out::println); //for output analysis
+    public static List<String> extractFromCSV() throws IOException {
+        List<String> allLinesFromCSV = Files.readAllLines(Path.of(System.getProperty("user.home"), "Desktop", "INPUT.csv"));
+        allLinesFromCSV.forEach(System.out::println); //for output analysis
+        return allLinesFromCSV; //virtual list to hold data (lines) from extracted CSV
     }
 
     //write to CSV method

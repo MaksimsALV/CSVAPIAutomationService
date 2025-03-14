@@ -3,12 +3,16 @@ package csv_processor;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Converter {
     public static void convertToJSON() {
         Repository.jsonObjectsList = new ArrayList<>();
+
         try {
-            for (String row : Repository.allLinesFromCSV) {
+            List<String> allLinesFromCSV = FileProcessor.extractFromCSV(); //returning the inputfile stored list in the allLinesFromCSV list variable for convert needs
+
+            for (String row : allLinesFromCSV) {
                 try {
                     String[] rowValues = row.split(",");
                     JSONObject jsonObject = new JSONObject();
