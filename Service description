@@ -1,0 +1,4 @@
+This service takes .csv file that has String,String,String in each row
+Splits the values (strings) by comma (each goes out as standalone value)
+Then converts it into JSON
+Then created new .csv file as JSON string for each row
